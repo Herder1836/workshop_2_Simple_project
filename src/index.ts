@@ -1,4 +1,5 @@
 import * as dotenv from 'dotenv';
+import { config } from './config.js';
 
 dotenv.config();
 
@@ -51,4 +52,37 @@ export function groupBy<T, K extends keyof T>(array: T[], key: K): Record<string
     },
     {} as Record<string, T[]>,
   );
+}
+/**
+ * Клас для логування з рівнями
+ */
+export class Logger {
+  private level: string;
+
+  constructor() {
+    this.level = config.LOG_LEVEL;
+  }
+
+  private shouldLog(level: string): boolean {
+    const levels = ['info', 'warn', 'error'];
+    return levels.indexOf(level) >= levels.indexOf(this.level);
+  }
+
+  info(message: string): void {
+    if (this.shouldLog('info')) {
+      console.log(`%c[INFO] ${message}`, 'color: #00bcd4');
+    }
+  }
+
+  warn(message: string): void {
+    if (this.shouldLog('warn')) {
+      console.warn(`%c[WARN] ${message}`, 'color: #ffc107');
+    }
+  }
+
+  error(message: string): void {
+    if (this.shouldLog('error')) {
+      console.error(`%c[ERROR] ${message}`, 'color: #f44336');
+    }
+  }
 }
