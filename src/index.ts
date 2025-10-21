@@ -3,9 +3,13 @@ import { config } from './config.js';
 
 dotenv.config();
 
-/** Базові утиліти */
-export function add(a: number, b: number): number {
-  return a + b;
+/**
+ * BREAKING CHANGE (2.0.0):
+ * Тепер add приймає масив чисел, а не два параметри.
+ * Приклад виклику: add([1, 2, 3]) → 6
+ */
+export function add(numbers: number[]): number {
+  return numbers.reduce((sum, n) => sum + n, 0);
 }
 
 export function capitalize(s: string): string {
