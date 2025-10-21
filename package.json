@@ -1,0 +1,44 @@
+{
+  "name": "workshop_2_simple_project",
+  "version": "0.0.0",
+  "description": "Simple TypeScript utility library",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "tsc --noEmit",
+    "demo": "tsx src/demo.ts",
+    "prepare": "husky"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Herder1836/workshop_2_Simple_project.git"
+  },
+  "author": "Andrey_Pogonia",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Herder1836/workshop_2_Simple_project/issues"
+  },
+  "homepage": "https://github.com/Herder1836/workshop_2_Simple_project#readme",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@commitlint/config-conventional": "^20.0.0",
+    "@eslint/js": "^9.38.0",
+    "@types/node": "^24.9.1",
+    "commitlint": "^20.1.0",
+    "eslint": "^9.38.0",
+    "eslint-config-prettier": "^10.1.8",
+    "husky": "^9.1.7",
+    "prettier": "^3.6.2",
+    "tsup": "^8.5.0",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.2"
+  }
+}
